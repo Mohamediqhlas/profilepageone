@@ -1,4 +1,10 @@
-from app import app
+from flask import Flask
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello from Vercel!"
+
+# REQUIRED: Vercel uses this name to run the server
+handler = app
